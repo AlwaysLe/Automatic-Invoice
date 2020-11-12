@@ -8,8 +8,8 @@ import docx
 from docx.shared import Inches
 from docxtpl import DocxTemplate
 
-path = os.path.expanduser('/Users/xintongli/PycharmProjects/Automatic Invoice Project/Dataset/*.xlsx')
-#path1 ='/Users/xintongli/Documents/学习/Python/Interested Project/Construction Invoice/*.xlsx'
+path = os.path.expanduser('/Users/xintongli/PycharmProjects/Project/Automatic Invoice/Dataset/*.xlsx')
+
 data = {}
 #pd.set_option('precision', 2) this does not change the export to docx
 #Loop over the folder to find the file that has the xlsx suffix
@@ -106,7 +106,7 @@ def docfile(key):
     paratotalpay = tpl.add_paragraph('Total Pay: CA$'+'{}'.format(df[key].iloc[-1,-1]))
     paratotalpay.alignment = WD_ALIGN_PARAGRAPH.RIGHT
     tpl.render(context)
-    tpl.save('/Users/xintongli/PycharmProjects/Automatic Invoice Project/Dataset/Invoice/'
+    tpl.save('/Users/xintongli/PycharmProjects/Project/Automatic Invoice/Dataset/Invoice/'
              +'{}'.format(key)+'_invoice.docx')
 
 for key in df.keys():
